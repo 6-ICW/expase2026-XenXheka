@@ -1,21 +1,17 @@
 import { useState } from "react";
 import RegistrationForm from "./components/RegistrationForm";
-
+import UserList from "./components/UserList";
 export default function App() {
-  const [GeregistreerdePersonen, SETgeregisreerdePersonen] = useState([
-    "Karel",
-    "Els",
-    "Piet",
-  ]);
+  const GeregistreerdePersonen = ["Karel", "Els", "Piet"];
+  const [users, SetUsers] = useState<string[]>([]);
+  console.log(users);
+
   return (
     <div>
-      <RegistrationForm
-        onRegister={(name) =>
-          SETgeregisreerdePersonen([...GeregistreerdePersonen, name])
-        }
-      />
+      <h1>Gebruikersregistratie</h1>
+      <RegistrationForm onRegister={(name) => SetUsers([...users, name])} />
       <hr />
-      <UserList />
+      <UserList users={users} registeredUsers={GeregistreerdePersonen} />
     </div>
   );
 }
