@@ -2,13 +2,20 @@ import { useState } from "react";
 import RegistrationForm from "./components/RegistrationForm";
 
 export default function App() {
-
+  const [GeregistreerdePersonen, SETgeregisreerdePersonen] = useState([
+    "Karel",
+    "Els",
+    "Piet",
+  ]);
   return (
-    const GeregistreerdePersonen = ["Karel", "Els", "Piet"];
     <div>
-      <RegistrationForm />
+      <RegistrationForm
+        onRegister={(name) =>
+          SETgeregisreerdePersonen([...GeregistreerdePersonen, name])
+        }
+      />
       <hr />
       <UserList />
-    </div >
+    </div>
   );
 }
