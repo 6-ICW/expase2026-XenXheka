@@ -9,7 +9,11 @@ export default function App() {
   return (
     <div>
       <h1>Gebruikersregistratie</h1>
-      <RegistrationForm onRegister={(name) => SetUsers([...users, name])} />
+      <RegistrationForm
+        onRegister={(name) => {
+          users.includes(name) ? "" : SetUsers([...users, name]);
+        }}
+      />
       <hr />
       <UserList users={users} registeredUsers={GeregistreerdePersonen} />
     </div>
